@@ -1,0 +1,45 @@
+{
+  "c4_en": {
+    "hf_hub_url": "allenai/c4",
+    "subset": "en",
+    "split": "train",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "c4_en_valid_1k": {
+    "file_name": "c4_en_valid_1k.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "c4_en_valid": {
+    "hf_hub_url": "allenai/c4",
+    "subset": "en",
+    "split": "validation",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "lima1k": {
+    "file_name": "lima1k.json",
+    "columns": {
+      "prompt": "instruction",
+      "response": "output"
+    }
+  },
+  "commonsense_170k": {
+    "file_name": "commonsense_170k.json",
+    "columns": {
+      "prompt": "instruction",
+      "response": "output"
+    }
+  },
+  "eval_csqa_qnli_rte": {
+    "file_name": "eval_csqa_qnli_rte.json",
+    "columns": {
+      "prompt": "instruction",
+      "response": "output"
+    }
+  }
+}

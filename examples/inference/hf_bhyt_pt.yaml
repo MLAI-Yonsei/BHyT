@@ -1,0 +1,9 @@
+model_name_or_path: ./saves/bhyt_exp/tmp/llama321b_BHyT4096_api
+template: llama3
+infer_backend: huggingface  # choices: [huggingface, vllm, sglang]
+trust_remote_code: true
+input_layer_lam: 2.0
+post_layer_lam: 1.0
+last_layer_lam: 0.0
+vllm_enforce_eager: true
+vllm_maxlen: 4095

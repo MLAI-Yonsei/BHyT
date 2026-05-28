@@ -1,0 +1,10 @@
+norm_type: "bhyt"
+input_layer_lam: None
+post_layer_lam: None
+last_layer_lam: None
+learnable_lam: True
+lam_layer_scale: False
+lam_layer_rscale: False
+input_layer_alpha_init_value: None
+post_layer_alpha_init_value: None
+last_layer_alpha_init_value: None

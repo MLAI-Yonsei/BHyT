@@ -1,0 +1,10 @@
+# model_name_or_path: ./saves/bhyt_exp/tmp/2048/llama321b_BHyTLINE
+model_name_or_path: ./saves/bhyt_exp/full/pt/llama321b_BHyTLINE/50K/BS16_GA1_LR5e-4_WD0.1_MIN_LR5e-06_WR1e-1_ILL2.0_PLA1.0_LLL0.0/checkpoint-50000
+template: llama3
+infer_backend: huggingface  # choices: [huggingface, vllm, sglang]
+trust_remote_code: true
+input_layer_lam: 2.0
+post_layer_lam: 1.0
+last_layer_lam: 0.0
+vllm_enforce_eager: true
+vllm_maxlen: 1023

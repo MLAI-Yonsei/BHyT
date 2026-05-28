@@ -1,0 +1,58 @@
+### model
+model_name_or_path: model_path
+trust_remote_code: true
+resize_vocab: true
+
+### LoRA
+finetuning_type: lora
+lora_rank: 8
+lora_target: all
+
+### method
+stage: sft
+do_train: true
+flash_attn: fa2
+enable_liger_kernel: true
+deepspeed: examples/deepspeed/ds_z2_config.json
+
+### dataset
+dataset: commonsense_170k
+packing: false
+template: llama3
+cutoff_len: 1024
+max_samples: 170000
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### train
+per_device_train_batch_size: 16
+gradient_accumulation_steps: 1
+learning_rate: 0.0001
+adam_beta1: 0.9
+adam_beta2: 0.95
+weight_decay: 0.1
+num_train_epochs: 3.0
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs: {'min_lr': 0.000003}
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 1800
+resume_from_checkpoint: null
+include_num_input_tokens_seen: true
+
+### output
+output_dir: saves/bhyt_exp/lora/sft/bhyt
+logging_steps: 100
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+report_to: wandb
+save_total_limit: 1
+save_strategy: 'epoch'
+
+## eval
+val_size: 0.1
+per_device_eval_batch_size: 8
+eval_strategy: steps
+eval_steps: 3000

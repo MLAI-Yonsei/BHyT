@@ -1,0 +1,53 @@
+### model
+model_name_or_path: model_path
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: full
+flash_attn: fa2
+enable_liger_kernel: true
+
+### dataset
+dataset: lima1k
+eval_dataset: eval_csqa_qnli_rte
+template: llama3
+cutoff_len: 2048
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### train
+per_device_train_batch_size: 16
+gradient_accumulation_steps: 1
+learning_rate: 5.0e-6
+num_train_epochs: 15.0
+lr_scheduler_type: cosine_with_min_lr
+lr_scheduler_kwargs: {'min_lr': 5.0e-7}
+warmup_ratio: 0.1
+adam_beta1: 0.9
+adam_beta2: 0.999
+weight_decay: 0.1
+bf16: true
+ddp_timeout: 1800
+seed: 42
+include_num_input_tokens_seen: true
+
+### eval & checkpoint selection
+eval_on_start: true
+per_device_eval_batch_size: 16
+eval_strategy: epoch
+save_strategy: epoch
+load_best_model_at_end: true
+metric_for_best_model: eval_loss
+greater_is_better: false
+save_total_limit: 1
+save_only_model: false
+
+### output
+output_dir: saves/bhyt_exp/full/sft/lima1k
+logging_steps: 10
+plot_loss: true
+overwrite_output_dir: true
+report_to: wandb
